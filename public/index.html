@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DEX Web App</title>
+</head>
+<body>
+  <h1>DEX Web App</h1>
+  <p>Enter your MetaMask account details to get started:</p>
+  <button onclick="connect()">Connect MetaMask</button>
+  <p id="status"></p>
+
+  <script src="./web3.js"></script>
+  <script>
+    async function connect() {
+      if (window.ethereum) {
+        try {
+          // Request account access
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          document.getElementById("status").innerHTML = "Connected to MetaMask!";
+        } catch (error) {
+          console.error(error);
+          document.getElementById("status").innerHTML = "User denied account access.";
+        }
+      } else {
+        document.getElementById("status").innerHTML = "Please install MetaMask!";
+      }
+    }
+  </script>
+</body>
+</html>
