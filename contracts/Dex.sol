@@ -3,11 +3,6 @@ pragma solidity ^0.8.0;
 
 import "./IERC20.sol";
 
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "./IERC20.sol";
-
 contract DEX {
     address public token;
     uint256 public price;
